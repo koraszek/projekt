@@ -19,9 +19,9 @@ model = load_model_oczekiwanie()
     # Prosty układ - jeden pod drugim, żeby uniknąć błędów renderowania
 dist = st.slider("Odległość (km)", 0.5, 20.0, 5.0)
 meals = st.number_input("Liczba dań", 1, 10, 2)
-rush = st.selectbox("Godzina szczytu?", ["Nie", "Tak"])
+rush = st.selectbox("Godzina szczytu (korki)", ["Nie", "Tak"])
 rain = st.selectbox("Deszcz", ["Nie", "Tak"])
-day = st.selectbox("Weekend lub święto?", ["Nie", "Tak"])
+day = st.selectbox("Weekend lub święto", ["Nie", "Tak"])
 time = st.selectbox("Pora dnia", ["Rano", "Przedpołudnie (Lunch)", "Popołudnie", "Wieczór"])
 
 if st.button("OBLICZ CZAS DOSTAWY"):
