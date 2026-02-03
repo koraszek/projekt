@@ -41,7 +41,7 @@ if st.button("OBLICZ CZAS DOSTAWY"):
 
         # DataFrame - kolejność kolumn musi być idealna:
         # odleglosc, godzina_szczytu, deszcz, liczba_dan
-    dane = pd.DataFrame([[dist, val_rush, val_rain, meals, day, time]], 
+    dane = pd.DataFrame([[dist, val_rush, val_rain, meals, val_day, val_time]], 
                             columns=['odleglosc', 'godzina_szczytu', 'deszcz', 'liczba_dan', 'weekend_swieto', 'pora_dnia'])
         
     prognoza = model.predict(dane)[0]
