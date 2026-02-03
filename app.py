@@ -41,9 +41,9 @@ if st.button("OBLICZ CZAS DOSTAWY"):
 
         # DataFrame - kolejność kolumn musi być idealna:
         # odleglosc, godzina_szczytu, deszcz, liczba_dan
-        dane = pd.DataFrame([[dist, val_rush, val_rain, meals, day, time]], 
+    dane = pd.DataFrame([[dist, val_rush, val_rain, meals, day, time]], 
                             columns=['odleglosc', 'godzina_szczytu', 'deszcz', 'liczba_dan', 'weekend_swieto', 'pora_dnia'])
         
-        prognoza = model.predict(dane)[0]
-        st.metric("Przewidywany czas", f"{prognoza:.1f} minut")
-        st.balloons()
+    prognoza = model.predict(dane)[0]
+    st.metric("Przewidywany czas", f"{prognoza:.1f} minut")
+    st.balloons()
