@@ -34,7 +34,7 @@ if st.button("OBLICZ CZAS DOSTAWY"):
         "Rano": 0,
         "Przedpołudnie (Lunch)": 1,
         "Popołudnie": 2,
-        "Wieczór (18-22)": 3
+        "Wieczór": 3
     }
 
     val_time = time_map[time]
