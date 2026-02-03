@@ -25,22 +25,23 @@ day = st.selectbox("Weekend lub święto?", ["Nie", "Tak"])
 time = st.selectbox("Pora dnia", ["Rano", "Przedpołudnie (Lunch)", "Popołudnie", "Wieczór"])
 
 if st.button("OBLICZ CZAS DOSTAWY"):
-        # Konwersja na liczby 0/1 zgodnie z Twoim modelem
-        val_rush = 1 if rush == "Tak" else 0
-        val_rain = 1 if rain == "Tak" else 0
-        val_day = 1 if day == "Tak" else 0
-       
-       time_map = {
-    "Rano": 0,
-    "Przedpołudnie (Lunch)": 1,
-    "Popołudnie": 2,
-    "Wieczór (18-22)": 3}
+    # Konwersja na liczby 0/1 zgodnie z Twoim modelem
+    val_rush = 1 if rush == "Tak" else 0
+    val_rain = 1 if rain == "Tak" else 0
+    val_day = 1 if day == "Tak" else 0
 
-       val_time = time_map[time]
+    time_map = {
+        "Rano": 0,
+        "Przedpołudnie (Lunch)": 1,
+        "Popołudnie": 2,
+        "Wieczór (18-22)": 3
+    }
+
+    val_time = time_map[time]
 
         # DataFrame - kolejność kolumn musi być idealna:
         # odleglosc, godzina_szczytu, deszcz, liczba_dan
-        dane = pd.DataFrame([[dist, val_rush, val_rain, meals]], 
+        dane = pd.DataFrame([[dist, val_rush, val_rain, meals, day, time]], 
                             columns=['odleglosc', 'godzina_szczytu', 'deszcz', 'liczba_dan', 'weekend_swieto', 'pora_dnia'])
         
         prognoza = model.predict(dane)[0]
