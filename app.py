@@ -1,20 +1,4 @@
-import streamlit as st
-import pandas as pd
-import xgboost as xgb
-import os
-
-# Definicja modelu na samym początku
-@st.cache_resource
-def load_model_oczekiwanie():
-    if os.path.exists('model_oczekiwanie.json'):
-        m = xgb.XGBRegressor()
-        m.load_model('model_oczekiwanie.json')
-        return m
-    return None
-
-st.title("Kalkulator czasu oczekiwania na dostawę")
-
-model = load_model_oczekiwanie()
+odel = load_model_oczekiwanie()
     
     # Prosty układ - jeden pod drugim, żeby uniknąć błędów renderowania
 dist = st.slider("Odległość (km)", 0.5, 20.0, 5.0)
